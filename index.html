@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Frame: Звук в сцене (Пункты 19-20)</title>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene cursor="rayOrigin: mouse">
+		<a-entity id="sound" geometry="primitive: plane" material="color: blue"
+          position="-10 0 0" sound="src: url(sound.mp3); autoplay: true"></a-entity>
+   
+   
+   
+        <!-- ЗВУК 1: Фоновый звук (Пункт 19) -->
+        <a-sound src="sound.mp3"
+                 autoplay="true"
+                 loop="true"
+                 volume="1"
+                 position="0 2 -3">
+        </a-sound>
+        
+
+       
+        <a-sound src="sound.mp3"
+                 autoplay="true"
+                 loop="true"
+                 volume="1"
+                 position="-2 1.5 -4"
+                 distance-model="exponential"
+                 refDistance="1"
+                 maxDistance="20">
+        </a-sound>
+        
+  
+        <a-sound src="sound.mp3"
+                 autoplay="true"
+                 loop="true"
+                 volume="1"
+                 position="3 1 -6">
+        </a-sound>
+        
+        <!-- Основные объекты сцены -->
+        <a-box position="0 2.5 -3" rotation="0 45 45" color="#FF5733"
+               animation="property: rotation; to: 0 405 45; loop: true; dur: 4000">
+        </a-box>
+        
+        <a-sphere position="-2 1.5 -4" radius="1.5" color="#33FF57"
+                  animation="property: position; to: -2 3 -4; dir: alternate; loop: true; dur: 1500">
+        </a-sphere>
+        
+        <a-cylinder position="2 1.5 -4" radius="0.5" height="3" color="#3357FF"
+                    animation="property: rotation; to: 360 0 0; loop: true; dur: 3000">
+        </a-cylinder>
+        
+        <a-cone position="-3 1 -6" 
+                radius-bottom="1.2" 
+                height="2.5" 
+                color="#FF00FF"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+        </a-cone>
+        
+        <a-torus position="3 1 -6" 
+                 arc="360" 
+                 radius="1.5" 
+                 radius-tubular="0.3" 
+                 color="#00FFFF"
+                 animation="property: scale; to: 1.5 1.5 1.5; dir: alternate; loop: true; dur: 3000">
+        </a-torus>
+        
+        <!-- Визуальные маркеры для звуков -->
+        <a-sphere position="0 2 -3" radius="0.2" color="#FF0000" opacity="0.5"></a-sphere>
+        <a-text value="Звук 1" position="0 2.3 -3" color="#FF0000" scale="0.8 0.8 0.8"></a-text>
+        
+        <a-sphere position="-2 1.5 -4" radius="0.2" color="#00FF00" opacity="0.5"></a-sphere>
+        <a-text value="Звук 2" position="-2 1.8 -4" color="#00FF00" scale="0.8 0.8 0.8"></a-text>
+        
+        <a-sphere position="3 1 -6" radius="0.2" color="#0000FF" opacity="0.5"></a-sphere>
+        <a-text value="Звук 3" position="3 1.3 -6" color="#0000FF" scale="0.8 0.8 0.8"></a-text>
+        
+        <!-- Освещение -->
+        <a-light type="point" position="0 5 0" intensity="30"></a-light>
+        <a-light type="point" position="-5 3 -5" intensity="15" color="#FF0000"></a-light>
+        <a-light type="point" position="5 3 -5" intensity="15" color="#0000FF"></a-light>
+        <a-light type="ambient" color="#666"></a-light>
+        
+    
+        
+        <!-- Фон и пол -->
+        <a-sky color="#111122"></a-sky>
+        <a-plane position="0 0 -5" rotation="-90 0 0" width="30" height="30" color="#333344"></a-plane>
+        
+        <!-- Камера с курсором -->
+        <a-camera position="0 2 10">
+            <a-cursor></a-cursor>
+        </a-camera>
+    </a-scene>
+    
+</body>
+</html>
